@@ -55,8 +55,7 @@ type Props = {
   setError: Dispatch<SetStateAction<string>>;
 };
 
-export const TermsCondition = ({
-  navigate,
+export const TermsCondition = ({  
   isLogin = false,
 }: {
   navigate: NavigateFunction;
