@@ -1,5 +1,6 @@
 {
-  "name": "chacha",
+  "name": "fan-predictor-web",
+  "description": "Fan Predictor Web Application",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,8 +9,8 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start": "node -r dotenv/config server",
-    "pm2": "pm2 start npm --name \"PERSPECTIF_WEB\" -- start",
-    "restart": "rm -rf node_modules && yarn && yarn build && pm2 restart PERSPECTIF_WEB",
+    "pm2": "pm2 start npm --name \"FAN_PREDICTOR_WEB\" -- start",
+    "restart": "rm -rf node_modules && yarn && yarn build && pm2 restart FAN_PREDICTOR_WEB",
     "restart-all": "yarn build && pm2 restart all"
   },
   "dependencies": {
