@@ -8,6 +8,7 @@ import { forgetPassword } from "../../server/user";
 import Input from "../../library/Input";
 import ServerError from "../ServerError";
 import Button from "../../library/Button";
+import { IUser } from "../../type";
 
 const ForgetPasswordForm = () => {
   const navigate = useNavigate();

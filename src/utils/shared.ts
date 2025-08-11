@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { format, getHours, isDate } from "date-fns";
 import { decryptData, encryptData } from "../helper";
+import { IUser } from "../type";
 
 export const calculatePercentage = (value: number, total: number) => {
   return ((Number(value) / Number(total)) * 100).toFixed();

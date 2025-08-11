@@ -8,6 +8,7 @@ import { saveCustomerDetails } from "../../utils/shared";
 import Input from "../../library/Input";
 import ServerError from "../ServerError";
 import Button from "../../library/Button";
+import { IUser } from "../../type";
 
 const LoginForm = () => {
   const navigate = useNavigate();

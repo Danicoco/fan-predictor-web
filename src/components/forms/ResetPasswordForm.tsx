@@ -9,6 +9,7 @@ import { resetPassword } from "../../server/user";
 import Input from "../../library/Input";
 import ServerError from "../ServerError";
 import Button from "../../library/Button";
+import { IUser } from "../../type";
 
 const ResetPasswordForm = () => {
   const navigate = useNavigate();

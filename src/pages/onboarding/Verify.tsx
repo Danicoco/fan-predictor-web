@@ -2,6 +2,7 @@ import { getCustomerDetails } from "../../utils/shared";
 
 import OnboardingLayout from "../../components/OnboardingLayout";
 import VerifyAccountForm from "../../components/forms/VerifyAccountForm";
+import { IUser } from "../../type";
 
 const Verify = () => {
   const customer = getCustomerDetails();

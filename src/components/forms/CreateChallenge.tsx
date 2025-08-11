@@ -6,6 +6,7 @@ import { changePassword } from "../../server/user";
 import Input from "../../library/Input";
 import ServerError from "../ServerError";
 import Button from "../../library/Button";
+import { IUser } from "../../type";
 
 const CreateChallengeForm = () => {
 

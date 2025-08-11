@@ -8,6 +8,7 @@ import ServerError from "../ServerError";
 import Button from "../../library/Button";
 import { updateProfile } from "../../server/user";
 import { saveCustomerDetails } from "../../utils/shared";
+import { IUser } from "../../type";
 
 type Props = {
   info: Partial<IUser>;

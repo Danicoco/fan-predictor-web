@@ -13,11 +13,6 @@ import Authenticated from "./Authenticated";
 import ProfileCreation from "../pages/onboarding/ProfileCreation";
 import Home from "../pages/dashboard/Home";
 import Profile from "../pages/personal/Profile";
-import AllInsight from "../pages/dashboard/AllInsight";
-import VoteTopic from "../pages/dashboard/VoteTopic";
-import SubmitInsight from "../pages/dashboard/SubmitInsight";
-import LiveDashboard from "../pages/dashboard/LiveDashboard";
-import WeeklyTopic from "../pages/topics/WeeklyTopic";
 import AddAvatar from "../pages/onboarding/AddAvatar";
 import Wallet from "../pages/wallet";
 import Challenges from "../pages/contests";
@@ -45,11 +40,6 @@ const PrivateRoutes = () => {
           <Route path="/dashboard" element={<Home />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/all-insight" element={<AllInsight />} />
-          <Route path="/vote-topic" element={<VoteTopic />} />
-          <Route path="/insight/:id/:name" element={<SubmitInsight />} />
-          <Route path="/live-dashboard/:id" element={<LiveDashboard />} />
-          <Route path="/weekly-topic/:quizId" element={<WeeklyTopic />} />.
           <Route path="/add-avatar" element={<AddAvatar />} />
           <Route path="/contest" element={<Challenges />} />
           <Route path="/create-contest" element={<CreateContest />} />
