@@ -72,14 +72,14 @@ export const TermsCondition = ({
         agree to our{" "}
         <span
           className="font-bold cursor-pointer"
-          onClick={() => navigate("/terms-and-condition")}
+          // onClick={() => navigate("/terms-and-condition")}
         >
           Terms
         </span>{" "}
         and{" "}
         <span
           className="font-bold cursor-pointer"
-          onClick={() => navigate("/privacy-policy")}
+          // onClick={() => navigate("/privacy-policy")}
         >
           Privacy Policy
         </span>
