@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout";
 import Button from "../../library/Button";
@@ -9,6 +10,8 @@ import Loading from "../../components/Loading";
 import Input from "../../library/Input";
 import { useCallback, useState } from "react";
 import debounce from "lodash.debounce";
+import useAppStore from "../../utils/appStore";
+import JoinContest from "../../components/modals/JoinContest";
 
 const Challenges = () => {
   const navigate = useNavigate();
@@ -60,7 +63,7 @@ const Challenges = () => {
         <>
           <div className="mt-10">
             {data?.map((contest) => (
-              <div className="rounded-3xl p-5 bg-white">
+              <div className="rounded-3xl p-5 bg-white my-5">
                 <div className="flex justify-between">
                   <div>
                     <h2 className="font-bold text-xl">{contest.title}</h2>
@@ -79,6 +82,8 @@ const Challenges = () => {
                       size="small"
                       color="danger"
                       className="sm:w-[90px] w-[65px]"
+                      // @ts-ignore
+                      onClick={() => navigate(`/leaderboard/${contest.competition._id}/${contest._id}`)}
                     >
                       View
                     </Button>
@@ -87,6 +92,7 @@ const Challenges = () => {
                       size="small"
                       color="danger"
                       className="sm:w-[90px] w-[65px]"
+                      onClick={() => useAppStore.setState({ modal: { open: true, type: "join-contest" } })}
                     >
                       Join
                     </Button>
@@ -101,6 +107,8 @@ const Challenges = () => {
           </div>
         </>
       )}
+
+      <JoinContest />
     </Layout>
   );
 };

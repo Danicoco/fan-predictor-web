@@ -17,12 +17,14 @@ import AddAvatar from "../pages/onboarding/AddAvatar";
 import Wallet from "../pages/wallet";
 import Challenges from "../pages/contests";
 import CreateContest from "../pages/contests/CreateContest";
+import WelcomePage from "../pages/auth/WelcomePage";
+import Leaderboard from "../pages/leaderboard";
 
 const PrivateRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<WelcomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/features" element={<Features />} />
         <Route path="/verify-account" element={<Verify />} />
@@ -43,6 +45,7 @@ const PrivateRoutes = () => {
           <Route path="/add-avatar" element={<AddAvatar />} />
           <Route path="/contest" element={<Challenges />} />
           <Route path="/create-contest" element={<CreateContest />} />
+          <Route path="/leaderboard/:competition/:contest" element={<Leaderboard />} />
         </Route>
         {/* routes outside the sidebar or dashboard ends here */}
 
