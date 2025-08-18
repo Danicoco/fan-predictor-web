@@ -2,43 +2,50 @@ import Button from "../../library/Button";
 import Players from "../../assets/player.png";
 import Logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import OnboardingLayout from "../../components/OnboardingLayout";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="grid place-content-center">
-      <div className="w-[700px] mt-5">
-        <div className="py-5 px-10 w-full bg-blue-300 rounded-lg">
-          <div className="flex justify-between">
+    <OnboardingLayout hide className="sm:flex sm:justify-center sm:items-center w-screen">
+      <div className="sm:w-[700px]">
+      <div className="py-5 px-10 w-full bg-[#c2937e] rounded-lg">
+        <div className="flex justify-between">
           <img src={Logo} className="h-[80px] w-[80px] rounded-xl" />
 
-            <div className="flex gap-10 mt-5">
-              <p className="text-white text-lg cursor-pointer" onClick={() => navigate("/")}>Home</p>
-              <p className="text-[#f7f7f7] text-lg cursor-pointer" onClick={() => navigate("/about-us")}>About</p>
-            </div>
-
-            <Button onClick={() => navigate("/login")} color="danger" className="w-[120px]">
+          <div className="mt-4">
+            <Button
+              onClick={() => navigate("/login")}
+              color="danger"
+              className="w-[120px]"
+            >
               Login
             </Button>
           </div>
         </div>
+      </div>
 
-        <div className="flex justify-between mt-5 gap-10">
-            <div className="w-[60%]">
+      <div className="flex sm:justify-between mt-5 gap-10">
+        <div className="sm:w-[60%] sm:block hidden">
           <img src={Players} className="h-[400px] w-full rounded-xl" />
-          </div>
+        </div>
 
-          <div className="mt-10 w-[40%]">
-            <div className="flex flex-col gap-20 justify-between">
-                <div>
-            <h3 className="font-bold text-3xl">Predict Football Matches</h3>
-            <p className="mt-5">
-              Make your predictions and compete with others!
-            </p>
-                </div>
+        <div className="sm:mt-10 mt-5 sm:w-[40%] w-full">
+          <div className="flex flex-col sm:gap-20 gap-7 justify-between">
+            <div>
+              <h3 className="text-3xl font-black text-black">Predict Football Matches</h3>
+              <p className="mt-5">
+                Make your predictions and compete with others!
+              </p>
+            </div>
             <div className="">
-              <Button className="w-full" onClick={() => navigate("/create-account")}>Get Started</Button>
+              <Button
+                className="sm:w-full"
+                onClick={() => navigate("/create-account")}
+              >
+                Get Started
+              </Button>
               <p
                 className="text-center text-blue-700 underline cursor-pointer"
                 onClick={() => navigate("/login")}
@@ -46,13 +53,12 @@ const WelcomePage = () => {
                 Login to predict
               </p>
             </div>
-            </div>
-
           </div>
         </div>
+      </div>
 
-        <div className="my-10 gap-10 flex justify-between">
-          <div className="w-[60%]">
+      <div className="my-10 gap-10 flex flex-col sm:flex-row sm:justify-between">
+          <div className="sm:w-[60%] sm:mb-10">
             <div className="bg-white p-5 rounded-lg">
               <h3 className="font-bold text-lg">Host or Join Contest</h3>
               <p>
@@ -71,7 +77,7 @@ const WelcomePage = () => {
             </div>
           </div>
 
-          <div className="w-[40%] bg-white">
+          <div className="sm:w-[40%] mb-10 bg-white">
             <h3 className="text-white p-3 bg-blue-950 rounded-t-xl font-bold">Leaderboard</h3>
             <div className="p-3">
               <div className="flex justify-between">
@@ -102,7 +108,7 @@ const WelcomePage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </OnboardingLayout>
   );
 };
 

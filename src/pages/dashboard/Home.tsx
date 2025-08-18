@@ -10,7 +10,7 @@ import { format } from "date-fns";
 import { ICompetition, IMatch } from "../../type";
 
 const Home = () => {
-  const [competitionId, setCompetitionId] = useState("6834125789b81e18a4a5a931");
+  const [competitionId, setCompetitionId] = useState("6834125789b81e18a4a5a932");
 
   const [competition, setCompetition] = useState(0);
   const { data: competitions } = useQuery<ICompetition[]>(

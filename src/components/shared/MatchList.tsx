@@ -39,7 +39,7 @@ function MatchList({
         className="flex border-[1px] border-[#f2f2f2] gap-2 p-[5px] overflow-x-auto w-full text-center"
       >
         {competitions
-          ?.sort((a, b) => a.name.localeCompare(b.name))
+          ?.sort((a, b) => b.name.localeCompare(a.name))
           ?.map((league, index) => (
             <div
               key={index}

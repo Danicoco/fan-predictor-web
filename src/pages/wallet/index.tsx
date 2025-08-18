@@ -3,40 +3,22 @@ import Layout from "../../components/Layout";
 import Button from "../../library/Button";
 import { walletColumn } from "../../components/columns/wallet-column";
 import { currencyFormatter } from "../../utils/shared";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 import {
   getTransactions,
   getWallet,
-  verifyTransaction,
 } from "../../server/wallet";
 import Loading from "../../components/Loading";
 import useAppStore from "../../utils/appStore";
 import FundAccountModal from "../../components/modals/FundAccount";
-import { useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
+import WithdrawFundModal from "../../components/modals/WithdrawFund";
 
 const Wallet = () => {
-  const queryClient = useQueryClient();
-  const [params] = useSearchParams();
-  const reference = params.get("reference");
   const { data, isLoading } = useQuery("wallet", getWallet);
   const { data: transData, isFetching } = useQuery(
     "transactions",
     getTransactions
   );
-
-  const mutation = useMutation(verifyTransaction, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("wallet");
-      window.location.href = "/wallet";
-    },
-  });
-
-  useEffect(() => {
-    if (reference) {
-      mutation.mutate({ reference });
-    }
-  }, [reference]);
 
   return (
     <Layout>
@@ -61,7 +43,16 @@ const Wallet = () => {
             >
               Fund Account
             </Button>
-            <Button color="danger">Withdraw</Button>
+            <Button
+              color="danger"
+              onClick={() =>
+                useAppStore.setState({
+                  modal: { open: true, type: "withdraw" },
+                })
+              }
+            >
+              Withdraw
+            </Button>
           </div>
 
           <Table
@@ -74,6 +65,7 @@ const Wallet = () => {
       )}
 
       <FundAccountModal />
+      <WithdrawFundModal />
     </Layout>
   );
 };

@@ -116,9 +116,9 @@ const MobileView = ({
         <LoginForm />
       </div>
 
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <TermsCondition isLogin={true} navigate={navigate} />
-      </div>
+      </div> */}
     </OnboardingLayout>
   );
 };
@@ -153,9 +153,9 @@ const DesktopView = ({
             <LoginForm />
           </div>
         
-          <div className="mt-10">
+          {/* <div className="mt-10">
             <TermsCondition isLogin={true} navigate={navigate} />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -12,6 +12,9 @@ const FundAccountModal = () => {
   const [amount, setAmount] = useState("");
 
   const onFinish = () => {
+    if (Number(amount) <= 0 ) {
+      return;
+    }
     window.open(`${import.meta.env.VITE_BACKEND_URL}/v1/pay?email=${customer.email}&amount=${amount}`, "_blank");
   }
 
@@ -30,7 +33,7 @@ const FundAccountModal = () => {
         
         <Input type="number" value={amount} onChange={(val) => setAmount(val.target.value)} />
 
-        <Button className="mt-8" onClick={onFinish}>Fund Account</Button>
+        <Button className="mt-8" onClick={onFinish}>Continue</Button>
       </div>
     </Modal>
   );

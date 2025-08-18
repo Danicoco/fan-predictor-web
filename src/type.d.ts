@@ -14,19 +14,19 @@ interface IAdmin extends DefaultAttributes {
 }
 
 interface IMatch extends DefaultAttributes {
-  status: "ongoing" | "finished" | "scheduled" | string
+  status: "ongoing" | "finished" | "scheduled" | string;
   homeTeam: {
-      name: string
-      shortName: string
-      crest: string
-      score: number | null
-  }
+    name: string;
+    shortName: string;
+    crest: string;
+    score: number | null;
+  };
   awayTeam: {
-      name: string
-      shortName: string
-      crest: string
-      score: number | null
-  }
+    name: string;
+    shortName: string;
+    crest: string;
+    score: number | null;
+  };
   matchday: string;
   date: Date;
   competition: string;
@@ -35,10 +35,10 @@ interface IMatch extends DefaultAttributes {
 }
 
 interface ICompetition extends DefaultAttributes {
-  name: string
-  type: string
-  code: string
-  filters: [{ name: string, value: string }],
+  name: string;
+  type: string;
+  code: string;
+  filters: [{ name: string; value: string }];
   default: boolean;
 }
 interface IUser extends DefaultAttributes {
@@ -54,25 +54,25 @@ interface IUser extends DefaultAttributes {
   isVerified: boolean;
 }
 
-type TransactionStatus = "pending" | "successful" | "failed"
-type TransactionType = "credit" | "debit"
+type TransactionStatus = "pending" | "successful" | "failed";
+type TransactionType = "credit" | "debit";
 
 interface ITransaction extends DefaultAttributes {
-    user: string
-    fee: number
-    amount: number
-    wallet: string
-    status: TransactionStatus
-    type: TransactionType
-    reference: string
-    currency: string
-    wasReverted?: boolean
-    wasRefunded?: boolean
-    dateReverted?: Date
-    dateRefunded?: Date
-    dateInitiated: Date
-    dateCompleted?: Date
-    meta?: Record<string, string>
+  user: string;
+  fee: number;
+  amount: number;
+  wallet: string;
+  status: TransactionStatus;
+  type: TransactionType;
+  reference: string;
+  currency: string;
+  wasReverted?: boolean;
+  wasRefunded?: boolean;
+  dateReverted?: Date;
+  dateRefunded?: Date;
+  dateInitiated: Date;
+  dateCompleted?: Date;
+  meta?: Record<string, string>;
 }
 
 interface IStore {
@@ -206,46 +206,46 @@ type SendMessage = {
 };
 
 export interface ICompetition extends DefaultAttributes {
-  name: string
-  type: string
-  code: string
+  name: string;
+  type: string;
+  code: string;
   logo: string;
   description: string;
   default: boolean;
-  filters: [{ name: string, value: string, current: boolean }]
+  filters: [{ name: string; value: string; current: boolean }];
 }
 
 export interface ITransaction extends DefaultAttributes {
-  user: string
-  fee: number
-  amount: number
-  wallet: string
-  status: TransactionStatus
-  type: TransactionType
-  reference: string
-  currency: string
-  wasReverted?: boolean
-  wasRefunded?: boolean
-  dateReverted?: Date
-  dateRefunded?: Date
-  dateInitiated: Date
-  dateCompleted?: Date
-  meta?: Record<string, any>
+  user: string;
+  fee: number;
+  amount: number;
+  wallet: string;
+  status: TransactionStatus;
+  type: TransactionType;
+  reference: string;
+  currency: string;
+  wasReverted?: boolean;
+  wasRefunded?: boolean;
+  dateReverted?: Date;
+  dateRefunded?: Date;
+  dateInitiated: Date;
+  dateCompleted?: Date;
+  meta?: Record<string, any>;
 }
 
 export interface INewsDetails {
-  url: string
-  title: string
-  author: string
-  content: string
-  urlToImage: string
-  description: string
-  publishedAt: string
-  source: { id: string, name: string }
+  url: string;
+  title: string;
+  author: string;
+  content: string;
+  urlToImage: string;
+  description: string;
+  publishedAt: string;
+  source: { id: string; name: string };
 }
 
 export interface IUserCompetition extends ICompetition {
-  user: string
+  user: string;
   competition: string;
 }
 
@@ -268,28 +268,28 @@ export interface IPrediction extends DefaultAttributes {
 }
 
 export interface ILeaderboard extends IUser {
-  predictions: { totalPoints: number;}
+  predictions: { totalPoints: number };
 }
 
 export interface IMatch extends DefaultAttributes {
-  status: "ongoing" | "finished" | "scheduled" | string
+  status: "ongoing" | "finished" | "scheduled" | string;
   homeTeam: {
-      name: string
-      shortName: string
-      crest: string
-      score: number | null
-  }
+    name: string;
+    shortName: string;
+    crest: string;
+    score: number | null;
+  };
   awayTeam: {
-      name: string
-      shortName: string
-      crest: string
-      score: number | null
-  }
+    name: string;
+    shortName: string;
+    crest: string;
+    score: number | null;
+  };
   matchday: number;
   date: Date;
   competition: string;
   stage: string;
-  prediction: IPrediction[]
+  prediction: IPrediction[];
 }
 
 interface IContest extends DefaultAttributes {
@@ -302,11 +302,25 @@ interface IContest extends DefaultAttributes {
   competition: string;
   isCreator: boolean;
   totalUsersJoined: number;
-  type: 'public' | 'private';
+  type: "public" | "private";
   winType: {
-      first: number // perecentage
-      second: number;
-      third: number;
-  }
-  invitationCode: string
+    first: number; // perecentage
+    second: number;
+    third: number;
+  };
+  invitationCode: string;
+}
+
+type IBankList = {
+  id: number;
+  name: string;
+  code: string;
+};
+
+interface IBank extends DefaultAttributes {
+    user: string;
+    bankName: string;
+    bankCode: string;
+    accountName: string;
+    accountNumber: string;
 }
