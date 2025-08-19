@@ -65,9 +65,9 @@ export const TermsCondition = ({
     <div>
       <p className={`text-xs ${!isLogin ? `text-left` : `text-center`}`}>
         {!isLogin
-          ? `By checking this box and joining Fan Predictor, you acknowledge that we may
+          ? `By checking this box and joining Predict Contest, you acknowledge that we may
         send you notifications and`
-          : `By joining Fan Predictor, you`}{" "}
+          : `By joining Predict Contest, you`}{" "}
         agree to our{" "}
         <span
           className="font-bold cursor-pointer"
@@ -103,7 +103,7 @@ const MobileView = ({
           className="underline cursor-pointer"
           onClick={() => navigate("/create-account")}
         >
-          Join Fan Predictor
+          Join Predict Contest
         </span>
       </p>
 
@@ -140,7 +140,7 @@ const DesktopView = ({
               className="underline cursor-pointer"
               onClick={() => navigate("/create-account")}
             >
-              Join Fan Predictor
+              Join Predict Contest
             </span>
           </p>
 

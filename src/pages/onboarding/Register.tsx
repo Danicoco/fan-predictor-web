@@ -71,7 +71,7 @@ const MobileView = ({
   return (
     <OnboardingLayout className="block sm:hidden">
       <div className="p-2 rounded-lg">
-        <h2 className="mt-5 text-[24px] font-bold navy-color">Join Fan Predictor!</h2>
+        <h2 className="mt-5 text-[24px] font-bold navy-color">Join Predict Contest!</h2>
         <p className="mt-3">
           Already have an account?{" "}
           <span
@@ -99,7 +99,7 @@ Props) => {
   return (
     <div className="grid place-content-center h-screen">
       <div className="py-5 px-10 w-full hidden sm:block">
-        <p className="mt-5 font-bold text-[24px]">Join Fan Predictor!</p>
+        <p className="mt-5 font-bold text-[24px]">Join Predict Contest!</p>
         <p className="mt-3">
           Already have an account?{" "}
           <span

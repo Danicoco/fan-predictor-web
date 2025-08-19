@@ -1,6 +1,6 @@
 {
   "name": "fan-predictor-web",
-  "description": "Fan Predictor Web Application",
+  "description": "Predict Contest Web Application",
   "private": true,
   "version": "0.0.0",
   "scripts": {

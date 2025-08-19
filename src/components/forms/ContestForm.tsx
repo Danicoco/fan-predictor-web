@@ -291,7 +291,7 @@ const ContestForm = () => {
               </Form.Item>
             </div>
             <p className="italic">
-              Note: 10% of the total money will go to creator of Fan Predictor
+              Note: 10% of the total money will go to creator of Predict Contest
             </p>
           </div>
         </>
