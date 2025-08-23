@@ -26,7 +26,7 @@ const Home = () => {
 
   const {
     data: matches,
-    isFetching,
+    isLoading: isFetching,
   } = useQuery<IMatch[]>(
     ["match", competitionId],
     () => getMatches(competitionId),
@@ -64,9 +64,6 @@ const Home = () => {
         <>
           <div className="mt-8">
             <div className="">
-              <h2 className="text-[22px] leading-[28px] font-bold mb-10">
-                Good morning Danicoco
-              </h2>
               <MatchList 
               competitions={competitions || []}
               competition={competition}
