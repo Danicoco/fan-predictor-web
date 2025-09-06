@@ -11,7 +11,7 @@ export const verifyAccount = async (body: Partial<IUser>) => {
     return data;
 }
 
-export const regenerateOtp = async (body: Partial<IUser>) => {
+export const regenerateOtp = async (body: Partial<IUser> & { type?: string }) => {
     const { data } = await instance().post('/v1/users/resend-code', body).catch(e => next(e));
     return data;
 }
