@@ -3,10 +3,9 @@ import Input from "../../library/Input";
 import Button from "../../library/Button";
 import { useState } from "react";
 import dayjs from "dayjs";
-import { currencyFormatter } from "../../utils/shared";
+// import { currencyFormatter } from "../../utils/shared";
 import { useMutation, useQuery } from "react-query";
 import { createContext } from "../../server/contest";
-import { useNavigate } from "react-router-dom";
 import { ICompetition } from "../../type";
 import { fetchUserCompetition } from "../../server/matches";
 
@@ -25,8 +24,6 @@ type EventDetails = {
 };
 
 const ContestForm = () => {
-  const navigate = useNavigate();
-
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<EventDetails>({
     title: "",
@@ -49,7 +46,8 @@ const ContestForm = () => {
 
   const mutation = useMutation(createContext, {
     onSuccess: () => {
-      navigate("/contest");
+      // navigate("/contest");
+      window.location.href = "/contest"
     },
     onError: (error) => {
       // throw error
@@ -134,8 +132,8 @@ const ContestForm = () => {
         <>
           <div className="flex flex-col gap-3">
             <Form.Item
-              name="startDate"
-              label={<p className="text-black font-bold">Start Date</p>}
+              name="competition"
+              label={<p className="text-black font-bold">Competition</p>}
               rules={[{ required: false, message: "Enter contest start date" }]}
             >
               <Select
@@ -197,7 +195,7 @@ const ContestForm = () => {
 
       {step === 3 && (
         <>
-          <Form.Item
+          {/* <Form.Item
             name="amount"
             label={<p className="text-black font-bold">Amount (Optional)</p>}
             rules={[{ required: false, message: "Enter amount." }]}
@@ -221,7 +219,7 @@ const ContestForm = () => {
             ) : (
               <p>Amount that members will pay to join your contest.</p>
             )}
-          </Form.Item>
+          </Form.Item> */}
 
           <div>
             <p className="text-black font-bold">Sharing (Optional)</p>

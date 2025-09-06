@@ -12,15 +12,15 @@ const Layout = ({ children }: Props) => {
   const navigate = useNavigate();
   return (
     <div className="pb-2">
-      <div className="flex justify-between">
+      <div className="flex justify-between mx-28">
         <ChatHeader />
-        <div className="sm:w-[120px] sm:mr-5 pr-3 pt-5">
+        {/* <div className="sm:w-[120px] sm:mr-5 pr-3 pt-5">
           <Button className="w-[120px]" onClick={() => navigate("/wallet")}>
             Wallet
           </Button>
-        </div>
+        </div> */}
         <div className="sm:w-[120px] sm:pr-44 pt-5">
-          <Button color="white" className="w-[150px]" onClick={() => navigate("/contest")}>
+          <Button color="primary" className="w-[150px]" onClick={() => navigate("/contest")}>
             Contest
           </Button>
         </div>
