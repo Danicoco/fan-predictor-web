@@ -115,7 +115,7 @@ const VerifyAccountForm = () => {
             }`}
             onClick={() =>
               !mutationGenerateOtp.isLoading &&
-              mutationGenerateOtp.mutateAsync({ email: customer?.email })
+              mutationGenerateOtp.mutateAsync({ email: customer?.email, type: 'verify' })
             }
           >
             Didn't receive the code? Resend
