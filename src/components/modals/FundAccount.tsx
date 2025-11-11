@@ -3,20 +3,38 @@ import useAppStore from "../../utils/appStore";
 import Input from "../../library/Input";
 import { useState } from "react";
 import Button from "../../library/Button";
-import { getCustomerDetails } from "../../utils/shared";
+import { useMutation } from "react-query";
+import { initializeNowPayment } from "../../server/wallet";
 
 const FundAccountModal = () => {
-  const customer = getCustomerDetails();
+  // const customer = getCustomerDetails();
   const modalOpen = useAppStore((state) => state.modal);
 
   const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
+
+  const mutation = useMutation(initializeNowPayment, {
+    onSuccess: (data) => {
+      console.log(data);
+      window.open(data.invoice_url, '_blank');
+    },
+    onError: (e: Error) => {
+      setError(e.message);
+    },
+  });
 
   const onFinish = () => {
-    if (Number(amount) <= 0 ) {
+    setError("");
+    if (Number(amount) < 11) {
+      setError("Minimum deposit is $20");
       return;
     }
-    window.open(`${import.meta.env.VITE_BACKEND_URL}/v1/pay?email=${customer.email}&amount=${amount}`, "_blank");
-  }
+    if (Number(amount) > 303477) {
+      setError("Maximum deposit is $303,477");
+      return;
+    }
+    mutation.mutate({ amount });
+  };
 
   return (
     <Modal
@@ -28,12 +46,21 @@ const FundAccountModal = () => {
       }
       className="bg-[#]"
     >
-        <p className="text-left font-bold">Enter amount</p>
+      <p className="text-red-600 text-center italic">{error}</p>
+      <p className="text-left font-bold">Enter amount</p>
+      <p className="text-left">Minimum Deposit: $20</p>
+      <p className="text-left">Maximum Deposit: $303,477</p>
       <div className="flex flex-col justify-center items-center mt-3">
-        
-        <Input type="number" value={amount} onChange={(val) => setAmount(val.target.value)} />
+        <Input
+        prefix={<span>USD</span>}
+          type="number"
+          value={amount}
+          onChange={(val) => setAmount(val.target.value)}
+        />
 
-        <Button className="mt-8" onClick={onFinish}>Continue</Button>
+        <Button className="mt-8" onClick={onFinish} loading={mutation.isLoading}>
+          Continue
+        </Button>
       </div>
     </Modal>
   );

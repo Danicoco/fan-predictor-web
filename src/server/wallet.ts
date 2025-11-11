@@ -14,3 +14,13 @@ export const getTransactions = async () => {
     const { data } = await instance().get('/v1/transactions', { params: { limit: 20, page: 1 }  }).catch(e => next(e));
     return data?.data;
 }
+
+export const fundAccount = async (values: { amount: string }) => {
+    const { data } = await instance().post('/v1/wallets', values).catch(e => next(e));
+    return data?.data;
+}
+
+export const initializeNowPayment = async (values: { amount: string }) => {
+    const { data } = await instance().post('/v1/wallets/now', values).catch(e => next(e));
+    return data?.data;
+}

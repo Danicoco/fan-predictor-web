@@ -19,6 +19,8 @@ import Challenges from "../pages/contests";
 import CreateContest from "../pages/contests/CreateContest";
 import WelcomePage from "../pages/auth/WelcomePage";
 import Leaderboard from "../pages/leaderboard";
+import SuccessfulPayment from "../pages/wallet/SuccessfulPayment";
+import PaymentFailed from "../pages/wallet/FailedPayment";
 
 const PrivateRoutes = () => {
   return (
@@ -45,6 +47,8 @@ const PrivateRoutes = () => {
           <Route path="/add-avatar" element={<AddAvatar />} />
           <Route path="/contest" element={<Challenges />} />
           <Route path="/create-contest" element={<CreateContest />} />
+          <Route path="/deposit-successful" element={<SuccessfulPayment />} />
+          <Route path="/deposit-failed" element={<PaymentFailed />} />
           <Route path="/leaderboard/:competition/:contest" element={<Leaderboard />} />
         </Route>
         {/* routes outside the sidebar or dashboard ends here */}
