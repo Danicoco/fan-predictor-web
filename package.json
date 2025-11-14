@@ -4,11 +4,11 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "node init && vite",
+    "build": "node init && tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "node -r dotenv/config server",
+    "start": "node init && node -r dotenv/config server",
     "pm2": "pm2 start npm --name \"FAN_PREDICTOR_WEB\" -- start",
     "restart": "rm -rf node_modules && yarn && yarn build && pm2 restart FAN_PREDICTOR_WEB",
     "restart-all": "yarn build && pm2 restart all"

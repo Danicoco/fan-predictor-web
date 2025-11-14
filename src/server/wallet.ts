@@ -24,3 +24,8 @@ export const initializeNowPayment = async (values: { amount: string }) => {
     const { data } = await instance().post('/v1/wallets/now', values).catch(e => next(e));
     return data?.data;
 }
+
+export const verifyNowPayment = async (values: { paymentId: string }) => {
+    const { data } = await instance().post('/v1/wallets/verify-now', values).catch(e => next(e));
+    return data?.data;
+}

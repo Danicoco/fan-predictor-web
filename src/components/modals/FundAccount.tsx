@@ -25,7 +25,7 @@ const FundAccountModal = () => {
 
   const onFinish = () => {
     setError("");
-    if (Number(amount) < 11) {
+    if (Number(amount) < 15) {
       setError("Minimum deposit is $20");
       return;
     }
@@ -48,7 +48,7 @@ const FundAccountModal = () => {
     >
       <p className="text-red-600 text-center italic">{error}</p>
       <p className="text-left font-bold">Enter amount</p>
-      <p className="text-left">Minimum Deposit: $20</p>
+      <p className="text-left">Minimum Deposit: $15</p>
       <p className="text-left">Maximum Deposit: $303,477</p>
       <div className="flex flex-col justify-center items-center mt-3">
         <Input
